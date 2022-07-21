@@ -1,6 +1,7 @@
 package comparing_objects_in_java;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Objects;
 
 
@@ -40,7 +41,11 @@ public class Person implements Comparable<Person>{
 
     @Override
     public int compareTo(final Person o) {
-        return this.lastName.compareTo(o.lastName);
+//        return this.lastName.compareTo(o.lastName);
+        return Comparator.comparing(Person::getLastName)
+                .thenComparing(Person::getFirstName)
+                .thenComparing(Person::getBirthDate, Comparator.nullsLast(Comparator.naturalOrder()))
+                .compare(this, o);
     }
 
     public String getFirstName() {
@@ -49,5 +54,9 @@ public class Person implements Comparable<Person>{
 
     public String getLastName() {
         return lastName;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 }
