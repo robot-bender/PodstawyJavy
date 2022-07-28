@@ -16,10 +16,10 @@ public class Person implements Comparable<Person>{
         this.lastName = lastName;
     }
 
-    public Person(final String firstName, final String lastName, LocalDate birthDate) {
-        this(firstName, lastName);
-        this.birthDate = birthDate;
-    }
+    // public Person(final String firstName, final String lastName, LocalDate birthDate) {
+    //     this(firstName, lastName);
+    //     this.birthDate = birthDate;
+    // }
 
     @Override
     public boolean equals(final Object o) {
