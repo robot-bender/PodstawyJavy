@@ -1,10 +1,13 @@
 package comparing_objects_in_java;
 
 import com.google.common.collect.ComparisonChain;
+import com.google.common.primitives.Ints;
+import org.apache.commons.lang3.ObjectUtils;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,14 +28,14 @@ public class Main {
 
         assertThat(people).containsExactly(allan, joe);
 
-        // String a = new String("Hello!");
-        // String b = new String("Hello World!");
+        String a = new String("Hello!");
+        String b = new String("Hello World!");
 
-        // assertThat(ObjectUtils.notEqual(a, b)).isTrue();
-        // assertThat(ObjectUtils.compare(a, b)).isNegative();
+        assertThat(ObjectUtils.notEqual(a, b)).isTrue();
+        assertThat(ObjectUtils.compare(a, b)).isPositive();
 
-        // assertThat(Objects.equals(a, b)).isTrue();
-        // assertThat(Ints.compare(1, 2)).isNegative();
+        assertThat(Objects.equals(a, b)).isFalse();
+        assertThat(Ints.compare(1, 2)).isNegative();
 
         Person natalie = new Person("Natalie", "Portman");
 
