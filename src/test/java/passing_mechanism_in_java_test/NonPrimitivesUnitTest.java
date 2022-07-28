@@ -1,4 +1,4 @@
-package passing_mechanism_in_java;
+package passing_mechanism_in_java_test;
 
 import org.junit.Test;
 
